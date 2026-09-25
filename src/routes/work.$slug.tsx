@@ -12,7 +12,7 @@ export const Route = createFileRoute("/work/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [{ title: "Project not found" }, { name: "robots", content: "noindex" }] };
     const { project } = loaderData;
-    return { meta: [{ title: \`\${project.title} | Case Study | Mustapha Adesanya\` }, { name: "description", content: project.description.slice(0, 155) }] };
+    return { meta: [{ title: `${project.title} | Case Study | Mustapha Adesanya` }, { name: "description", content: project.description.slice(0, 155) }] };
   },
   notFoundComponent: ProjectNotFound,
   component: ProjectDetail,
@@ -54,7 +54,7 @@ function ProjectDetail() {
         <Reveal delay={0.1}><h2 className="font-display text-sm font-bold uppercase tracking-[0.25em] text-primary">The outcome</h2><p className="mt-5 border-l-2 border-primary pl-5 text-lg leading-relaxed text-muted-foreground">{project.outcome}</p></Reveal>
       </section>
       <div className="mx-auto mt-16 grid max-w-7xl gap-8 px-5 md:px-10">
-        {project.images.map((img, i) => <Reveal key={i} className={i % 2 === 1 ? "md:w-4/5 md:self-end" : ""}><img src={img} alt={\`\${project.title} detail \${i + 1}\`} loading="lazy" width={1200} height={1504} className="w-full object-cover" /></Reveal>)}
+        {project.images.map((img, i) => <Reveal key={i} className={i % 2 === 1 ? "md:w-4/5 md:self-end" : ""}><img src={img} alt={`${project.title} detail ${i + 1}`} loading="lazy" width={1200} height={1504} className="w-full object-cover" /></Reveal>)}
       </div>
       <Link to="/work/$slug" params={{ slug: next.slug }} className="group mt-24 block border-y border-border py-16 text-center transition-colors hover:bg-card">
         <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Next project</p>
