@@ -41,7 +41,7 @@ function WorkIndex() {
 
       <Reveal delay={0.1} className="mt-10 flex flex-wrap gap-2">
         {projectCategories.map((cat) => (
-          <button key={cat} onClick={() => setActive(cat)} className={\`px-4 py-2 text-xs font-semibold uppercase tracking-widest transition-colors \${active === cat ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground hover:border-primary hover:text-foreground"}\`}>
+          <button key={cat} onClick={() => setActive(cat)} className={`px-4 py-2 text-xs font-semibold uppercase tracking-widest transition-colors ${active === cat ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground hover:border-primary hover:text-foreground"}`}>
             {cat}
           </button>
         ))}
