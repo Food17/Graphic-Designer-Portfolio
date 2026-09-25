@@ -32,7 +32,7 @@ function Contact() {
         </h1>
       </Reveal>
       <Reveal delay={0.1} className="mt-12">
-        <a href={\`mailto:\${EMAIL}\`} className="group inline-flex items-center gap-4 bg-primary px-8 py-5 font-display text-lg font-bold uppercase tracking-widest text-primary-foreground transition-colors hover:bg-primary/90 md:text-xl">
+        <a href={`mailto:${EMAIL}`} className="group inline-flex items-center gap-4 bg-primary px-8 py-5 font-display text-lg font-bold uppercase tracking-widest text-primary-foreground transition-colors hover:bg-primary/90 md:text-xl">
           {EMAIL}
           <span aria-hidden className="transition-transform group-hover:translate-x-2">→</span>
         </a>
