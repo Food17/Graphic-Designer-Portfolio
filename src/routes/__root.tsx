@@ -81,17 +81,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mustapha Adesanya — Graphic & Brand Identity Designer" },
+      { title: "Mustapha Adesanya | Graphic & Brand Identity Designer" },
       {
         name: "description",
         content:
-          "Portfolio of Mustapha Adesanya, a graphic designer specializing in bold brand identities, packaging and art direction.",
+          "Portfolio of Mustapha Adesanya, a graphic designer specializing in brand identity, poster and flyer design.",
       },
       { name: "author", content: "Mustapha Adesanya" },
-      { property: "og:title", content: "Mustapha Adesanya — Graphic & Brand Identity Designer" },
+      { property: "og:title", content: "Mustapha Adesanya | Graphic & Brand Identity Designer" },
       {
         property: "og:description",
-        content: "Bold brand identities, packaging and art direction. Selected work and case studies.",
+        content: "Brand identity, poster and flyer design. Selected work and case studies.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
