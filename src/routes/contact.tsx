@@ -12,10 +12,11 @@ export const Route = createFileRoute("/contact")({
 });
 
 const EMAIL = "giwamoon17@gmail.com";
+const BEHANCE_URL = "https://www.behance.net/mustaphadesanya";
 
 const socials = [
   { label: "Instagram", href: "#" },
-  { label: "Behance", href: "#" },
+  { label: "Behance", href: BEHANCE_URL },
   { label: "LinkedIn", href: "#" },
   { label: "Dribbble", href: "#" },
 ];
@@ -40,7 +41,11 @@ function Contact() {
       <Reveal delay={0.2} className="mt-16 border-t border-border pt-8">
         <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Elsewhere</p>
         <div className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
-          {socials.map((s) => <a key={s.label} href={s.href} className="text-sm font-medium uppercase tracking-widest text-muted-foreground transition-colors hover:text-primary">{s.label} ↗</a>)}
+          {socials.map((s) => (
+            <a key={s.label} href={s.href} target={s.label === "Behance" ? "_blank" : undefined} rel={s.label === "Behance" ? "noopener noreferrer" : undefined} className="text-sm font-medium uppercase tracking-widest text-muted-foreground transition-colors hover:text-primary">
+              {s.label} ↗
+            </a>
+          ))}
         </div>
       </Reveal>
     </div>
