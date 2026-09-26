@@ -15,6 +15,8 @@ export const Route = createFileRoute("/work/")({
   component: WorkIndex,
 });
 
+const BEHANCE_URL = "https://www.behance.net/mustaphadesanya";
+
 function WorkIndex() {
   const [active, setActive] = useState("All");
   const filtered = active === "All" ? projects : projects.filter((p) => p.category === active);
@@ -39,7 +41,7 @@ function WorkIndex() {
         </Reveal>
       </div>
 
-      <Reveal delay={0.1} className="mt-10 flex flex-wrap gap-2">
+      <Reveal delay={0.1} className="mt-10 flex flex-wrap items-center gap-2">
         {projectCategories.map((cat) => (
           <button key={cat} onClick={() => setActive(cat)} className={`px-4 py-2 text-xs font-semibold uppercase tracking-widest transition-colors ${active === cat ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground hover:border-primary hover:text-foreground"}`}>
             {cat}
@@ -56,6 +58,13 @@ function WorkIndex() {
           ))}
         </AnimatePresence>
       </motion.div>
+
+      <Reveal delay={0.15} className="mt-16 flex justify-center">
+        <a href={BEHANCE_URL} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 border border-border px-6 py-4 text-sm font-semibold uppercase tracking-widest transition-colors hover:border-primary hover:text-primary">
+          View more work on Behance
+          <span aria-hidden className="transition-transform group-hover:translate-x-1">↗</span>
+        </a>
+      </Reveal>
     </div>
   );
 }
