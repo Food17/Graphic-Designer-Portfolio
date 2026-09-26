@@ -1,8 +1,3 @@
-import auroraCover from "@/assets/projects/aurora-cover.jpg";
-import auroraDetail from "@/assets/projects/aurora-detail.jpg";
-import pulseCover from "@/assets/projects/pulse-cover.jpg";
-import pulseDetail from "@/assets/projects/pulse-detail.jpg";
-
 export type Project = {
   slug: string;
   title: string;
@@ -12,34 +7,53 @@ export type Project = {
   roles: string[];
   description: string;
   outcome: string;
-  cover: string;
-  images: string[];
+  behanceUrl: string;
 };
 
 export const projects: Project[] = [
   {
-    slug: "aurora-coffee",
-    title: "Aurora Coffee",
-    client: "Aurora Specialty Coffee Roasters",
-    category: "Brand Identity",
-    year: "2025",
-    roles: ["Brand Identity", "Print Design"],
-    description: "A full identity for a specialty coffee roaster that wanted a warm, crafted visual language. The system is built on a rising sun mark, natural materials, and a confident accent that works across print and digital applications.",
-    outcome: "The identity was rolled out across packaging, cafe signage, and merchandise as a cohesive visual system.",
-    cover: auroraCover,
-    images: [auroraCover, auroraDetail],
+    slug: "poster-designs-property-planet",
+    title: "Poster Designs",
+    client: "Property Planet",
+    category: "Poster Designs",
+    year: "2026",
+    roles: ["Poster Design", "Visual Design"],
+    description: "A poster design collection created for Property Planet, focused on clear visual communication, strong hierarchy, and promotional impact.",
+    outcome: "A focused set of poster designs ready to view as a complete project on Behance.",
+    behanceUrl: "https://www.behance.net/gallery/256253935/Poster-Designs-(Poperty-Planet)",
   },
   {
-    slug: "pulse-fm",
-    title: "Pulse FM",
-    client: "Pulse FM Radio Network",
-    category: "Poster & Flyer Designs",
-    year: "2025",
-    roles: ["Poster Design", "Flyer Design", "Print"],
-    description: "A poster and flyer design system for a youth radio network. The layouts use strong typography, energetic composition, and a flexible visual structure for events and promotions.",
-    outcome: "The design system creates a consistent look across event posters, promotional flyers, and social campaign materials.",
-    cover: pulseCover,
-    images: [pulseCover, pulseDetail],
+    slug: "brand-identity-sweetcrumbs-creation",
+    title: "Brand Identity Design",
+    client: "Sweetcrumbs Creation",
+    category: "Brand Identity",
+    year: "2026",
+    roles: ["Brand Identity", "Visual Identity"],
+    description: "A brand identity design project for Sweetcrumbs Creation, bringing the brand together through a considered visual identity system.",
+    outcome: "A cohesive identity presentation showcasing the visual direction and brand system.",
+    behanceUrl: "https://www.behance.net/gallery/256250709/Brand-Identity-Design-(Sweetcrumbs-Creation)",
+  },
+  {
+    slug: "visual-designs-mssn-gaposa",
+    title: "Visual Designs",
+    client: "MSSN GAPOSA",
+    category: "Visual Designs",
+    year: "2026",
+    roles: ["Visual Design", "Graphic Design"],
+    description: "A visual design collection for MSSN GAPOSA, developed to communicate ideas and campaigns through strong graphic compositions.",
+    outcome: "A collection of visual design work presented together as a Behance project.",
+    behanceUrl: "https://www.behance.net/gallery/256249153/Visual-Designs-(MSSN-GAPOSA)",
+  },
+  {
+    slug: "flyer-designs-property-planet",
+    title: "Flyer Designs",
+    client: "Property Planet",
+    category: "Flyer Designs",
+    year: "2026",
+    roles: ["Flyer Design", "Print Design"],
+    description: "A flyer design collection for Property Planet, created for promotional communication with clear messaging and strong visual presence.",
+    outcome: "A focused collection of flyer designs presented as a complete Behance project.",
+    behanceUrl: "https://www.behance.net/gallery/256243479/Flyer-designs-(Property-Planet)",
   },
 ];
 
