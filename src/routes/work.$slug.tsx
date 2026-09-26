@@ -48,14 +48,27 @@ function ProjectDetail() {
         <div><p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Role</p><p className="mt-2 font-medium">{project.roles.join(", ")}</p></div>
         <div><p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Year</p><p className="mt-2 font-medium">{project.year}</p></div>
       </section>
-      <div className="mx-auto mt-12 max-w-7xl px-5 md:px-10"><Reveal><img src={project.cover} alt={project.title} width={1200} height={1504} className="w-full object-cover" /></Reveal></div>
+      <section className="mx-auto mt-12 max-w-7xl px-5 md:px-10">
+        <Reveal className="border border-border bg-muted p-8 md:p-14">
+          <div className="mx-auto flex min-h-[320px] max-w-4xl flex-col justify-between border border-border p-8 md:p-12">
+            <span className="w-fit bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground">{project.category}</span>
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{project.client}</p>
+              <h2 className="mt-3 font-display text-4xl font-black uppercase leading-none tracking-tight md:text-6xl">{project.title}</h2>
+            </div>
+          </div>
+        </Reveal>
+      </section>
       <section className="mx-auto mt-16 grid max-w-7xl gap-12 px-5 md:grid-cols-2 md:px-10">
         <Reveal><h2 className="font-display text-sm font-bold uppercase tracking-[0.25em] text-primary">The brief</h2><p className="mt-5 text-lg leading-relaxed text-foreground/90">{project.description}</p></Reveal>
         <Reveal delay={0.1}><h2 className="font-display text-sm font-bold uppercase tracking-[0.25em] text-primary">The outcome</h2><p className="mt-5 border-l-2 border-primary pl-5 text-lg leading-relaxed text-muted-foreground">{project.outcome}</p></Reveal>
       </section>
-      <div className="mx-auto mt-16 grid max-w-7xl gap-8 px-5 md:px-10">
-        {project.images.map((img, i) => <Reveal key={i} className={i % 2 === 1 ? "md:w-4/5 md:self-end" : ""}><img src={img} alt={`${project.title} detail ${i + 1}`} loading="lazy" width={1200} height={1504} className="w-full object-cover" /></Reveal>)}
-      </div>
+      <Reveal delay={0.15} className="mx-auto mt-16 flex max-w-7xl justify-center px-5 md:px-10">
+        <a href={project.behanceUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 bg-primary px-8 py-5 font-display text-lg font-bold uppercase tracking-widest text-primary-foreground transition-colors hover:bg-primary/90">
+          View more details on Behance
+          <span aria-hidden className="transition-transform group-hover:translate-x-2">↗</span>
+        </a>
+      </Reveal>
       <Link to="/work/$slug" params={{ slug: next.slug }} className="group mt-24 block border-y border-border py-16 text-center transition-colors hover:bg-card">
         <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Next project</p>
         <p className="mt-4 font-display text-5xl font-black uppercase tracking-tight transition-colors group-hover:text-primary md:text-7xl">{next.title} <span aria-hidden className="text-primary">→</span></p>
