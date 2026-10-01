@@ -42,7 +42,7 @@ function ImageSlot({
   large = false,
 }: {
   label: string;
-  image?: string;
+  image?: string | undefined;
   alt: string;
   large?: boolean;
 }) {
@@ -68,7 +68,7 @@ function ImageSlot({
 function ProjectDetail() {
   const { project } = Route.useLoaderData();
   const idx = projects.findIndex((p) => p.slug === project.slug);
-  const next = projects[(idx + 1) % projects.length];
+  const next = projects[(idx + 1) % projects.length]!;
   const previews = project.previewImages ?? [];
 
   return (
