@@ -23,6 +23,13 @@ export const projects: Project[] = [
     description: "A poster design collection created for Property Planet, focused on clear visual communication, strong hierarchy, and promotional impact.",
     outcome: "A focused set of poster designs ready to view as a complete project on Behance.",
     behanceUrl: "https://www.behance.net/gallery/256253935/Poster-Designs-(Poperty-Planet)",
+    coverImage: "/projects/poster-designs-property-planet/cover.jpg",
+    previewImages: [
+      "/projects/poster-designs-property-planet/preview-1.jpg",
+      "/projects/poster-designs-property-planet/preview-2.jpg",
+      "/projects/poster-designs-property-planet/preview-3.jpg",
+      "/projects/poster-designs-property-planet/preview-4.jpg",
+    ],
   },
   {
     slug: "brand-identity-sweetcrumbs-creation",
@@ -34,6 +41,13 @@ export const projects: Project[] = [
     description: "A brand identity design project for Sweetcrumbs Creation, bringing the brand together through a considered visual identity system.",
     outcome: "A cohesive identity presentation showcasing the visual direction and brand system.",
     behanceUrl: "https://www.behance.net/gallery/256250709/Brand-Identity-Design-(Sweetcrumbs-Creation)",
+    coverImage: "/projects/brand-identity-sweetcrumbs-creation/cover.jpg",
+    previewImages: [
+      "/projects/brand-identity-sweetcrumbs-creation/preview-1.jpg",
+      "/projects/brand-identity-sweetcrumbs-creation/preview-2.jpg",
+      "/projects/brand-identity-sweetcrumbs-creation/preview-3.jpg",
+      "/projects/brand-identity-sweetcrumbs-creation/preview-4.jpg",
+    ],
   },
   {
     slug: "visual-designs-mssn-gaposa",
@@ -45,6 +59,13 @@ export const projects: Project[] = [
     description: "A visual design collection for MSSN GAPOSA, developed to communicate ideas and campaigns through strong graphic compositions.",
     outcome: "A collection of visual design work presented together as a Behance project.",
     behanceUrl: "https://www.behance.net/gallery/256249153/Visual-Designs-(MSSN-GAPOSA)",
+    coverImage: "/projects/visual-designs-mssn-gaposa/cover.jpg",
+    previewImages: [
+      "/projects/visual-designs-mssn-gaposa/preview-1.jpg",
+      "/projects/visual-designs-mssn-gaposa/preview-2.jpg",
+      "/projects/visual-designs-mssn-gaposa/preview-3.jpg",
+      "/projects/visual-designs-mssn-gaposa/preview-4.jpg",
+    ],
   },
   {
     slug: "flyer-designs-property-planet",
@@ -56,6 +77,13 @@ export const projects: Project[] = [
     description: "A flyer design collection for Property Planet, created for promotional communication with clear messaging and strong visual presence.",
     outcome: "A focused collection of flyer designs presented as a complete Behance project.",
     behanceUrl: "https://www.behance.net/gallery/256243479/Flyer-designs-(Property-Planet)",
+    coverImage: "/projects/flyer-designs-property-planet/cover.jpg",
+    previewImages: [
+      "/projects/flyer-designs-property-planet/preview-1.jpg",
+      "/projects/flyer-designs-property-planet/preview-2.jpg",
+      "/projects/flyer-designs-property-planet/preview-3.jpg",
+      "/projects/flyer-designs-property-planet/preview-4.jpg",
+    ],
   },
 ];
 
