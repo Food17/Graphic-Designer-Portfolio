@@ -8,6 +8,8 @@ export type Project = {
   description: string;
   outcome: string;
   behanceUrl: string;
+  coverImage?: string;
+  previewImages?: string[];
 };
 
 export const projects: Project[] = [
