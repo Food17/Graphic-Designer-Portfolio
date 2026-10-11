@@ -1,3 +1,14 @@
+import auroraCover from "@/assets/projects/aurora-cover.jpg";
+import auroraDetail from "@/assets/projects/aurora-detail.jpg";
+import nordwindCover from "@/assets/projects/nordwind-cover.jpg";
+import nordwindDetail from "@/assets/projects/nordwind-detail.jpg";
+import pulseCover from "@/assets/projects/pulse-cover.jpg";
+import pulseDetail from "@/assets/projects/pulse-detail.jpg";
+import terraCover from "@/assets/projects/terra-cover.jpg";
+import terraDetail from "@/assets/projects/terra-detail.jpg";
+import hexaCover from "@/assets/projects/hexa-cover.jpg";
+import hexaDetail from "@/assets/projects/hexa-detail.jpg";
+
 export type Project = {
   slug: string;
   title: string;
@@ -7,83 +18,85 @@ export type Project = {
   roles: string[];
   description: string;
   outcome: string;
-  behanceUrl: string;
-  coverImage?: string;
-  previewImages?: string[];
+  cover: string;
+  images: string[];
 };
 
+/**
+ * Central project registry — the single file to edit when swapping in
+ * real work. Replace titles, copy and image imports; add new projects
+ * by appending an entry and dropping the images into src/assets/projects/.
+ */
 export const projects: Project[] = [
   {
-    slug: "poster-designs-property-planet",
-    title: "Poster Designs",
-    client: "Property Planet",
-    category: "Poster Designs",
-    year: "2026",
-    roles: ["Poster Design", "Visual Design"],
-    description: "A poster design collection created for Property Planet, focused on clear visual communication, strong hierarchy, and promotional impact.",
-    outcome: "A focused set of poster designs ready to view as a complete project on Behance.",
-    behanceUrl: "https://www.behance.net/gallery/256253935/Poster-Designs-(Poperty-Planet)",
-    coverImage: "/projects/poster-designs-property-planet/cover.jpg",
-    previewImages: [
-      "/projects/poster-designs-property-planet/preview-1.jpg",
-      "/projects/poster-designs-property-planet/preview-2.jpg",
-      "/projects/poster-designs-property-planet/preview-3.jpg",
-      "/projects/poster-designs-property-planet/preview-4.jpg",
-    ],
-  },
-  {
-    slug: "brand-identity-sweetcrumbs-creation",
-    title: "Brand Identity Design",
-    client: "Sweetcrumbs Creation",
+    slug: "aurora-coffee",
+    title: "Aurora Coffee",
+    client: "Aurora Specialty Coffee Roasters",
     category: "Brand Identity",
-    year: "2026",
-    roles: ["Brand Identity", "Visual Identity"],
-    description: "A brand identity design project for Sweetcrumbs Creation, bringing the brand together through a considered visual identity system.",
-    outcome: "A cohesive identity presentation showcasing the visual direction and brand system.",
-    behanceUrl: "https://www.behance.net/gallery/256250709/Brand-Identity-Design-(Sweetcrumbs-Creation)",
-    coverImage: "/projects/brand-identity-sweetcrumbs-creation/cover.jpg",
-    previewImages: [
-      "/projects/brand-identity-sweetcrumbs-creation/preview-1.jpg",
-      "/projects/brand-identity-sweetcrumbs-creation/preview-2.jpg",
-      "/projects/brand-identity-sweetcrumbs-creation/preview-3.jpg",
-      "/projects/brand-identity-sweetcrumbs-creation/preview-4.jpg",
-    ],
+    year: "2025",
+    roles: ["Brand Identity", "Packaging", "Print"],
+    description:
+      "A full identity for a specialty coffee roaster that wanted to feel warm and crafted rather than precious. The system is built on a rising-sun mark, kraft stocks and a confident burnt-orange that cuts through on shelf.",
+    outcome:
+      "The rebrand rolled out across packaging, café signage and merch in six weeks, and gave the roastery a wholesale-ready identity that still feels handmade.",
+    cover: auroraCover,
+    images: [auroraCover, auroraDetail],
   },
   {
-    slug: "visual-designs-mssn-gaposa",
-    title: "Visual Designs",
-    client: "MSSN GAPOSA",
-    category: "Visual Designs",
-    year: "2026",
-    roles: ["Visual Design", "Graphic Design"],
-    description: "A visual design collection for MSSN GAPOSA, developed to communicate ideas and campaigns through strong graphic compositions.",
-    outcome: "A collection of visual design work presented together as a Behance project.",
-    behanceUrl: "https://www.behance.net/gallery/256249153/Visual-Designs-(MSSN-GAPOSA)",
-    coverImage: "/projects/visual-designs-mssn-gaposa/cover.jpg",
-    previewImages: [
-      "/projects/visual-designs-mssn-gaposa/preview-1.jpg",
-      "/projects/visual-designs-mssn-gaposa/preview-2.jpg",
-      "/projects/visual-designs-mssn-gaposa/preview-3.jpg",
-      "/projects/visual-designs-mssn-gaposa/preview-4.jpg",
-    ],
+    slug: "nordwind",
+    title: "Nordwind",
+    client: "Nordwind Outdoor Apparel",
+    category: "Art Direction",
+    year: "2024",
+    roles: ["Art Direction", "Campaign", "Identity"],
+    description:
+      "Campaign identity and art direction for an outdoor apparel label built for serious weather. Cold blues, compressed type and documentary photography give the brand a quiet, endurance-driven voice.",
+    outcome:
+      "The campaign ran across out-of-home, retail and social, lifting seasonal pre-orders and setting the visual language for the following two collections.",
+    cover: nordwindCover,
+    images: [nordwindCover, nordwindDetail],
   },
   {
-    slug: "flyer-designs-property-planet",
-    title: "Flyer Designs",
-    client: "Property Planet",
-    category: "Flyer Designs",
-    year: "2026",
-    roles: ["Flyer Design", "Print Design"],
-    description: "A flyer design collection for Property Planet, created for promotional communication with clear messaging and strong visual presence.",
-    outcome: "A focused collection of flyer designs presented as a complete Behance project.",
-    behanceUrl: "https://www.behance.net/gallery/256243479/Flyer-designs-(Property-Planet)",
-    coverImage: "/projects/flyer-designs-property-planet/cover.jpg",
-    previewImages: [
-      "/projects/flyer-designs-property-planet/preview-1.jpg",
-      "/projects/flyer-designs-property-planet/preview-2.jpg",
-      "/projects/flyer-designs-property-planet/preview-3.jpg",
-      "/projects/flyer-designs-property-planet/preview-4.jpg",
-    ],
+    slug: "pulse-fm",
+    title: "Pulse FM",
+    client: "Pulse FM Radio Network",
+    category: "Brand Identity",
+    year: "2025",
+    roles: ["Brand Identity", "Motion", "Poster Series"],
+    description:
+      "A loud, gradient-driven identity for a youth radio network. The soundwave mark flexes across posters, app screens and broadcast graphics, turning audio into a colour system you can see.",
+    outcome:
+      "The identity now anchors the station's on-air graphics, app and event posters — a system loud enough for a music brand but disciplined enough to scale.",
+    cover: pulseCover,
+    images: [pulseCover, pulseDetail],
+  },
+  {
+    slug: "terra-ceramics",
+    title: "Terra Ceramics",
+    client: "Terra Ceramics Studio",
+    category: "Packaging",
+    year: "2023",
+    roles: ["Packaging", "Identity", "Print"],
+    description:
+      "Identity and packaging for a small-batch ceramics studio. Terracotta, sand and raw board echo the clay itself; a blind-embossed mark and wax seal keep every touchpoint tactile.",
+    outcome:
+      "The packaging system helped the studio move from market stalls into boutique retail, with a boxed set that became their best-selling product line.",
+    cover: terraCover,
+    images: [terraCover, terraDetail],
+  },
+  {
+    slug: "hexa-finance",
+    title: "Hexa Finance",
+    client: "Hexa Fintech",
+    category: "Brand Identity",
+    year: "2024",
+    roles: ["Rebrand", "Design System", "Guidelines"],
+    description:
+      "A ground-up rebrand for a fintech platform that wanted to feel bold instead of beige. A geometric hexagon mark, near-black surfaces and a single electric orange give the product instant recognition.",
+    outcome:
+      "The rebrand shipped across product UI, pitch material and a 120-page guideline system adopted by every internal team.",
+    cover: hexaCover,
+    images: [hexaCover, hexaDetail],
   },
 ];
 
@@ -91,4 +104,7 @@ export function getProject(slug: string | undefined) {
   return projects.find((p) => p.slug === slug);
 }
 
-export const projectCategories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
+export const projectCategories = [
+  "All",
+  ...Array.from(new Set(projects.map((p) => p.category))),
+];

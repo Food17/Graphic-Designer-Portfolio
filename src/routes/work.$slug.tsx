@@ -10,12 +10,20 @@ export const Route = createFileRoute("/work/$slug")({
     return { project };
   },
   head: ({ loaderData }) => {
-    if (!loaderData) return { meta: [{ title: "Project not found" }, { name: "robots", content: "noindex" }] };
+    if (!loaderData) {
+      return {
+        meta: [{ title: "Project not found" }, { name: "robots", content: "noindex" }],
+      };
+    }
     const { project } = loaderData;
     return {
       meta: [
-        { title: `${project.title} | Case Study | Mustapha Adesanya` },
+        { title: `${project.title} — Case Study | Mustapha Adesanya` },
         { name: "description", content: project.description.slice(0, 155) },
+        { property: "og:title", content: `${project.title} — Case Study` },
+        { property: "og:description", content: project.description.slice(0, 155) },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
     };
   },
@@ -27,40 +35,15 @@ function ProjectNotFound() {
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center px-4 text-center">
       <h1 className="font-display text-5xl font-black uppercase">Project not found</h1>
-      <p className="mt-4 text-muted-foreground">This case study does not exist.</p>
-      <Link to="/work" className="mt-8 bg-primary px-6 py-3 font-display text-sm font-bold uppercase tracking-widest text-primary-foreground">
-        Back to work
+      <p className="mt-4 text-muted-foreground">
+        This case study doesn't exist — it may have been renamed or removed.
+      </p>
+      <Link
+        to="/work"
+        className="mt-8 bg-primary px-6 py-3 font-display text-sm font-bold uppercase tracking-widest text-primary-foreground transition-colors hover:bg-primary/90"
+      >
+        ← Back to work
       </Link>
-    </div>
-  );
-}
-
-function ImageSlot({
-  label,
-  image,
-  alt,
-  large = false,
-}: {
-  label: string;
-  image?: string | undefined;
-  alt: string;
-  large?: boolean;
-}) {
-  return (
-    <div className={`relative overflow-hidden border border-border bg-muted ${large ? "aspect-[16/9]" : "aspect-[4/3]"}`}>
-      {image ? (
-        <img src={image} alt={alt} className="h-full w-full object-cover" />
-      ) : (
-        <div className="flex h-full w-full flex-col items-center justify-center p-8 text-center">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
-            {label}
-          </span>
-          <span className="mt-3 h-px w-12 bg-border" />
-          <span className="mt-3 text-xs uppercase tracking-[0.18em] text-muted-foreground/70">
-            Image slot ready
-          </span>
-        </div>
-      )}
     </div>
   );
 }
@@ -68,14 +51,17 @@ function ImageSlot({
 function ProjectDetail() {
   const { project } = Route.useLoaderData();
   const idx = projects.findIndex((p) => p.slug === project.slug);
-  const next = projects[(idx + 1) % projects.length]!;
-  const previews = project.previewImages ?? [];
+  const next = projects[(idx + 1) % projects.length] ?? projects[0]!;
 
   return (
     <article className="pb-28">
+      {/* Header */}
       <header className="mx-auto max-w-7xl px-5 pt-14 md:px-10">
-        <Link to="/work" className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground transition-colors hover:text-primary">
-          All work
+        <Link
+          to="/work"
+          className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground transition-colors hover:text-primary"
+        >
+          ← All work
         </Link>
         <div className="mt-6 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-widest">
           <span className="bg-primary px-3 py-1 text-primary-foreground">{project.category}</span>
@@ -91,63 +77,75 @@ function ProjectDetail() {
         </motion.h1>
       </header>
 
+      {/* Meta */}
       <section className="mx-auto mt-10 grid max-w-7xl gap-8 border-y border-border px-5 py-8 sm:grid-cols-3 md:px-10">
-        <div><p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Client</p><p className="mt-2 font-medium">{project.client}</p></div>
-        <div><p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Role</p><p className="mt-2 font-medium">{project.roles.join(", ")}</p></div>
-        <div><p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Year</p><p className="mt-2 font-medium">{project.year}</p></div>
+        <div>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Client</p>
+          <p className="mt-2 font-medium">{project.client}</p>
+        </div>
+        <div>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Role</p>
+          <p className="mt-2 font-medium">{project.roles.join(", ")}</p>
+        </div>
+        <div>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Year</p>
+          <p className="mt-2 font-medium">{project.year}</p>
+        </div>
       </section>
 
-      <section className="mx-auto mt-12 max-w-7xl px-5 md:px-10">
+      {/* Cover */}
+      <div className="mx-auto mt-12 max-w-7xl px-5 md:px-10">
         <Reveal>
-          <ImageSlot
-            label="Cover image"
-            image={project.coverImage}
-            alt={project.title}
-            large
+          <img
+            src={project.cover}
+            alt={`${project.title} — brand identity`}
+            width={1200}
+            height={1504}
+            className="w-full object-cover"
           />
         </Reveal>
+      </div>
 
-        <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          {[0, 1, 2, 3].map((slot) => (
-            <Reveal key={slot} delay={0.05 * slot}>
-              <ImageSlot
-                label={`Preview 0${slot + 1}`}
-                image={previews[slot]}
-                alt={`${project.title} preview ${slot + 1}`}
-              />
-            </Reveal>
-          ))}
-        </div>
-
-        <p className="mt-5 text-center text-xs uppercase tracking-[0.18em] text-muted-foreground">
-          Add the project cover and preview images here when ready
-        </p>
-      </section>
-
+      {/* Copy */}
       <section className="mx-auto mt-16 grid max-w-7xl gap-12 px-5 md:grid-cols-2 md:px-10">
         <Reveal>
-          <h2 className="font-display text-sm font-bold uppercase tracking-[0.25em] text-primary">The brief</h2>
+          <h2 className="font-display text-sm font-bold uppercase tracking-[0.25em] text-primary">
+            The brief
+          </h2>
           <p className="mt-5 text-lg leading-relaxed text-foreground/90">{project.description}</p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-sm font-bold uppercase tracking-[0.25em] text-primary">The outcome</h2>
-          <p className="mt-5 border-l-2 border-primary pl-5 text-lg leading-relaxed text-muted-foreground">{project.outcome}</p>
+          <h2 className="font-display text-sm font-bold uppercase tracking-[0.25em] text-primary">
+            The outcome
+          </h2>
+          <p className="mt-5 border-l-2 border-primary pl-5 text-lg leading-relaxed text-muted-foreground">
+            {project.outcome}
+          </p>
         </Reveal>
       </section>
 
-      <Reveal delay={0.15} className="mx-auto mt-16 flex max-w-7xl justify-center px-5 md:px-10">
-        <a
-          href={project.behanceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-center gap-3 bg-primary px-8 py-5 font-display text-lg font-bold uppercase tracking-widest text-primary-foreground transition-colors hover:bg-primary/90"
-        >
-          View more details on Behance
-          <span aria-hidden className="transition-transform group-hover:translate-x-2">↗</span>
-        </a>
-      </Reveal>
+      {/* Gallery */}
+      <div className="mx-auto mt-16 grid max-w-7xl gap-8 px-5 md:px-10">
+        {project.images.map((img, i) => (
+          <Reveal key={i} className={i % 2 === 1 ? "md:w-4/5 md:self-end" : ""}>
+            <img
+              src={img}
+              alt={`${project.title} — detail ${i + 1}`}
+              loading="lazy"
+              width={1200}
+              height={1504}
+              className="w-full object-cover"
+            />
+          </Reveal>
+        ))}
+      </div>
 
-      <Link to="/work/$slug" params={{ slug: next.slug }} className="group mt-24 block border-y border-border py-16 text-center transition-colors hover:bg-card">
+      {/* Next project */}
+      <Link
+        to="/work/$slug"
+        params={{ slug: next.slug }}
+        className="group mt-24 block border-y border-border py-16 text-center transition-colors hover:bg-card"
+      >
         <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Next project</p>
         <p className="mt-4 font-display text-5xl font-black uppercase tracking-tight transition-colors group-hover:text-primary md:text-7xl">
           {next.title} <span aria-hidden className="text-primary">→</span>
