@@ -51,7 +51,7 @@ function ProjectNotFound() {
 function ProjectDetail() {
   const { project } = Route.useLoaderData();
   const idx = projects.findIndex((p) => p.slug === project.slug);
-  const next = projects[(idx + 1) % projects.length];
+  const next = projects[(idx + 1) % projects.length] ?? projects[0]!;
 
   return (
     <article className="pb-28">
