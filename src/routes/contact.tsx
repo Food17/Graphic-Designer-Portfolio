@@ -59,7 +59,7 @@ function InquiryForm() {
     const raw = Object.fromEntries(new FormData(form).entries());
     const parsed = inquirySchema.safeParse({
       ...raw,
-      company: String(raw.company ?? ""),
+      company: String(raw["company"] ?? ""),
     });
     if (!parsed.success) {
       const errs: Record<string, string> = {};
@@ -192,6 +192,15 @@ function Contact() {
             →
           </span>
         </a>
+      </Reveal>
+
+      <Reveal delay={0.15} className="mt-16">
+        <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          Tell me about your project
+        </p>
+        <div className="mt-6">
+          <InquiryForm />
+        </div>
       </Reveal>
 
       <Reveal delay={0.2} className="mt-16 border-t border-border pt-8">
