@@ -59,7 +59,7 @@ function InquiryForm() {
     const raw = Object.fromEntries(new FormData(form).entries());
     const parsed = inquirySchema.safeParse({
       ...raw,
-      company: String(raw.company ?? ""),
+      company: String(raw["company"] ?? ""),
     });
     if (!parsed.success) {
       const errs: Record<string, string> = {};
