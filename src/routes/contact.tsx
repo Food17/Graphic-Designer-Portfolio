@@ -194,6 +194,15 @@ function Contact() {
         </a>
       </Reveal>
 
+      <Reveal delay={0.15} className="mt-16">
+        <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          Tell me about your project
+        </p>
+        <div className="mt-6">
+          <InquiryForm />
+        </div>
+      </Reveal>
+
       <Reveal delay={0.2} className="mt-16 border-t border-border pt-8">
         <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Elsewhere</p>
         <div className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
